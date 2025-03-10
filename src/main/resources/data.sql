@@ -1,12 +1,12 @@
 -- Insert Managers
-INSERT INTO manager (id, name, last_name) VALUES (1, 'John', 'Doe');
-INSERT INTO manager (id, name, last_name) VALUES (2, 'Jane', 'Smith');
+INSERT INTO manager (id, first_name, last_name) VALUES (1, 'John', 'Doe');
+INSERT INTO manager (id, first_name, last_name) VALUES (2, 'Jane', 'Smith');
 
 -- Insert Employees
-INSERT INTO employee (id, name, last_name, manager_id) VALUES (1, 'Alice', 'Johnson', 1);
-INSERT INTO employee (id, name, last_name, manager_id) VALUES (2, 'Bob', 'Brown', 1);
-INSERT INTO employee (id, name, last_name, manager_id) VALUES (3, 'Charlie', 'Davis', 2);
-INSERT INTO employee (id, name, last_name, manager_id) VALUES (4, 'David', 'Wilson', 2);
+INSERT INTO employee (id, first_name, last_name, manager_id) VALUES (1, 'Alice', 'Johnson', 1);
+INSERT INTO employee (id, first_name, last_name, manager_id) VALUES (2, 'Bob', 'Brown', 1);
+INSERT INTO employee (id, first_name, last_name, manager_id) VALUES (3, 'Charlie', 'Davis', 2);
+INSERT INTO employee (id, first_name, last_name, manager_id) VALUES (4, 'David', 'Wilson', 2);
 
 -- Insert Timesheets
 INSERT INTO timesheet (id, date, start_date, end_date, employee_id) VALUES (1, '2025-03-01', '2025-03-01', '2025-03-01', 1);

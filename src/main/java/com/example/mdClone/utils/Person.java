@@ -11,6 +11,6 @@ import lombok.*;
 @MappedSuperclass
 public abstract class Person {
 
-    private String name;
+    private String firstName;
     private String lastName;
 }
