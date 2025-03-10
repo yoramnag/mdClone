@@ -30,8 +30,8 @@ public class ManagerRestController {
     }
 
     @GetMapping("/getManagerByName")
-    public ResponseEntity<Optional<Manager>> getManagerByName(@RequestParam String managerName){
-        Optional<Manager> optionalManager = managerService.findByFirstName(managerName);
+    public ResponseEntity<Optional<Manager>> getManagerByName(@RequestParam String firstName, @RequestParam String lastName){
+        Optional<Manager> optionalManager = managerService.findByName(firstName,lastName);
         return ResponseEntity.status(HttpStatus.OK).body(optionalManager);
     }
 }

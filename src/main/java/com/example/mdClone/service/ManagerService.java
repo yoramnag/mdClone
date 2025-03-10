@@ -18,8 +18,8 @@ public class ManagerService {
         return managertRepository.findAll();
     }
     
-    public Optional<Manager> findByFirstName(String managerName){
-        Optional<Manager> optionalManager = managertRepository.findByFirstName(managerName);
+    public Optional<Manager> findByName(String firstName, String lastName){
+        Optional<Manager> optionalManager = managertRepository.findByFirstNameAndLastName(firstName,lastName);
         return optionalManager;
     }
 }
