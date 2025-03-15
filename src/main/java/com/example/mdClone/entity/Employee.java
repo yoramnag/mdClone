@@ -21,6 +21,7 @@ public class Employee extends Person {
     @Column(name="Id")
     private int id;
 
+
     private String role;
 
     @OneToMany(mappedBy = "employee")
