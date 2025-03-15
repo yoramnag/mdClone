@@ -54,4 +54,14 @@ public class TimesheetRestController {
     }
 
 
+    @DeleteMapping("/deleteTimesheet")
+    public ResponseEntity<ResponseDto> deleteTimesheetById(@RequestParam String id){
+        timesheetService.deleteTimesheetById(Integer.valueOf(id));
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseDto(MdCloneConstants.STATUS_200,MdCloneConstants.MESSAGE_200));
+    }
+
+
+
 }

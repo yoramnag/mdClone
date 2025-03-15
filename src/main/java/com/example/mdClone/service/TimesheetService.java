@@ -2,7 +2,6 @@ package com.example.mdClone.service;
 
 import com.example.mdClone.entity.Employee;
 import com.example.mdClone.entity.Timesheet;
-import com.example.mdClone.exception.TimesheetAllReadyExistsException;
 import com.example.mdClone.exception.TimesheetNotFoundException;
 import com.example.mdClone.repository.TimesheetRepository;
 import lombok.AllArgsConstructor;
@@ -44,5 +43,13 @@ public class TimesheetService {
         Employee employee = organizationService.retrieveEmployee(timesheet.getEmployee().getFirstName(),timesheet.getEmployee().getLastName());
         timesheet.setEmployee(employee);
         timesheetRepository.save(timesheet);
+    }
+
+    public void deleteTimesheetById(Integer id) {
+        Optional<Timesheet> timesheetOptional = timesheetRepository.findById(id);
+        if(!timesheetOptional.isPresent()){
+            throw new TimesheetNotFoundException("timesheet" , "id" , String.valueOf(id));
+        }
+        timesheetRepository.deleteById(id);
     }
 }
