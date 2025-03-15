@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "2a5c2cad-b7ac-4c12-a83e-8389e0ef4b4e",
+		"name": "mdClone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3913811"
+	},
+	"item": [
+		{
+			"name": "manager",
+			"item": [
+				{
+					"name": "getAllManagers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/manager/getAllManagers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"getAllManagers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getManagerByName",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/manager/getManagerByName?firstName=John&lastName=Doe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"getManagerByName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "John"
+								},
+								{
+									"key": "lastName",
+									"value": "Doe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate get Manager By Name",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/manager/getManagerByName?firstName=John&lastName=Doe2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"getManagerByName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "John"
+								},
+								{
+									"key": "lastName",
+									"value": "Doe2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Manager",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Yoram\",\r\n    \"lastName\": \"Nagawker\",\r\n    \"employeeList\": [\r\n        {\r\n            \"firstName\": \"Alice\",\r\n            \"lastName\": \"Johnson\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/manager/createManager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"createManager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Manager",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Yoram\",\r\n    \"lastName\": \"Nagawker\",\r\n    \"employeeList\": [\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/manager/updateManager?firstName=Yoram&lastName=Nagawker",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"updateManager"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Yoram"
+								},
+								{
+									"key": "lastName",
+									"value": "Nagawker"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Manager By Name",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/manager/deleteManagerByName?firstName=Yoram&lastName=Nagawker",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manager",
+								"deleteManagerByName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Yoram"
+								},
+								{
+									"key": "lastName",
+									"value": "Nagawker"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "timesheet",
+			"item": [
+				{
+					"name": "get All Timesheet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/getAllTimesheet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"getAllTimesheet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Timesheet By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/getTimesheetById?id=30001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"getTimesheetById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "30001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate get Timesheet By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/getTimesheetById?id=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"getTimesheetById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Timesheet",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"date\": \"2025-03-01\",\r\n        \"startDate\": \"2025-03-01T09:00:00.000+02:00\",\r\n        \"endDate\": \"2025-03-01T17:00:00.000+02:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/createTimesheet?firstName=Alice&lastName=Johnson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"createTimesheet"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Alice"
+								},
+								{
+									"key": "lastName",
+									"value": "Johnson"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Timesheet",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"date\": \"2025-03-01\",\r\n    \"startDate\": \"2025-03-01T09:00:00.000+02:00\",\r\n    \"endDate\": \"2025-03-01T19:00:00.000+02:00\",\r\n    \"employee\":{\r\n        \"firstName\": \"Alice\",\r\n        \"lastName\": \"Johnson\"\r\n    }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/updateTimesheet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"updateTimesheet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Timesheet By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/timesheet/deleteTimesheet?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"timesheet",
+								"deleteTimesheet"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "get All Employees",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/employee/getAllEmployees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"getAllEmployees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Employee By Name",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/employee/getEmployeeByName?firstName=Alice&lastName=Johnson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"getEmployeeByName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Alice"
+								},
+								{
+									"key": "lastName",
+									"value": "Johnson"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ben\",\r\n    \"lastName\": \"Avital\",\r\n    \"role\": \"GO Developer\",\r\n    \"manager\" : {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/updateEmployee?firstName=Ran&lastName=Avital",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"updateEmployee"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Ran"
+								},
+								{
+									"key": "lastName",
+									"value": "Avital"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save employees",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ran\",\r\n    \"lastName\": \"Avital\",\r\n    \"role\": \"GO Developer\",\r\n    \"manager\" : {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/createEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"createEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save employee Chen",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Chen\",\r\n    \"lastName\": \"Belker\",\r\n    \"role\": \"QA\",\r\n    \"manager\" : {\r\n        \"firstName\": \"Yoram\",\r\n        \"lastName\": \"Nagawker\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/createEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"createEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Employee By Name",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/deleteEmployeeByName?firstName=Ben&lastName=Avital",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"employee",
+								"deleteEmployeeByName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Ben"
+								},
+								{
+									"key": "lastName",
+									"value": "Avital"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
