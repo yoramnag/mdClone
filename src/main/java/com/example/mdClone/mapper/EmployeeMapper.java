@@ -25,6 +25,7 @@ public class EmployeeMapper {
     }
 
     public static Employee mapToEmployee(Optional<Employee> optionalEmployee,Employee employee){
+        employee.setId(optionalEmployee.stream().toList().get(0).getId());
         employee.setFirstName(optionalEmployee.stream().toList().get(0).getFirstName());
         employee.setLastName(optionalEmployee.stream().toList().get(0).getLastName());
         employee.setRole(optionalEmployee.stream().toList().get(0).getRole());

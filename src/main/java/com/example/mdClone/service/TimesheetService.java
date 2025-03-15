@@ -1,6 +1,8 @@
 package com.example.mdClone.service;
 
+import com.example.mdClone.entity.Employee;
 import com.example.mdClone.entity.Timesheet;
+import com.example.mdClone.exception.TimesheetAllReadyExistsException;
 import com.example.mdClone.exception.TimesheetNotFoundException;
 import com.example.mdClone.repository.TimesheetRepository;
 import lombok.AllArgsConstructor;
@@ -13,7 +15,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class TimesheetService {
 
-    private TimesheetRepository timesheetRepository;
+    private final TimesheetRepository timesheetRepository;
+    private final OrganizationService organizationService;
 
     public List<Timesheet> findAll(){
         return timesheetRepository.findAll();
@@ -27,7 +30,19 @@ public class TimesheetService {
         return timesheetOptional;
     }
 
-    public void saveTimesheet(Timesheet timesheet, Integer employeeId) {
-        //Optional<Employee> optionalEmployee =
+    public void saveTimesheet(Timesheet timesheet, String firstName, String lastName) {
+        Employee employee = organizationService.retrieveEmployee(firstName,lastName);
+        timesheet.setEmployee(employee);
+        timesheetRepository.save(timesheet);
+    }
+
+    public void updateTimesheet(Timesheet timesheet) {
+        Optional<Timesheet> timesheetOptional = timesheetRepository.findById(timesheet.getId());
+        if(!timesheetOptional.isPresent()){
+            throw new TimesheetNotFoundException("timesheet" , "id" , String.valueOf(timesheet.getId()));
+        }
+        Employee employee = organizationService.retrieveEmployee(timesheet.getEmployee().getFirstName(),timesheet.getEmployee().getLastName());
+        timesheet.setEmployee(employee);
+        timesheetRepository.save(timesheet);
     }
 }

@@ -36,11 +36,21 @@ public class TimesheetRestController {
         return ResponseEntity.status(HttpStatus.OK).body(timesheetOptional);
     }
 
-    public ResponseEntity<ResponseDto> createTimesheet(@RequestBody Timesheet timesheet, @RequestParam String employeeId){
-        timesheetService.saveTimesheet(timesheet,Integer.valueOf(employeeId));
+    @PostMapping("createTimesheet")
+    public ResponseEntity<ResponseDto> createTimesheet(@RequestBody Timesheet timesheet, @RequestParam String firstName, @RequestParam String lastName){
+        timesheet.setId(0);
+        timesheetService.saveTimesheet(timesheet,firstName,lastName);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(MdCloneConstants.STATUS_201,MdCloneConstants.TIMESHEET_MESSAGE_201));
+    }
+
+    @PutMapping("/updateTimesheet")
+    public ResponseEntity<ResponseDto> updateTimesheet(@RequestBody Timesheet timesheet){
+        timesheetService.updateTimesheet(timesheet);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseDto(MdCloneConstants.STATUS_200,MdCloneConstants.MESSAGE_200));
     }
 
 
