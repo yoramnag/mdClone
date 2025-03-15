@@ -55,4 +55,29 @@ public class ManagerService {
         }
         managerRepository.save(manager);
     }
+
+
+    public void updateManager(ManagerDto managerDto, String firstName, String lastName) {
+        Optional<Manager> optionalManager = managerRepository.findByFirstNameAndLastName(firstName,lastName);
+        if(!optionalManager.isPresent()){
+            throw new ManagerNotFoundException("manager","manger name",firstName+" "+lastName);
+        }
+        Manager manager = new Manager();
+        manager.setId(optionalManager.stream().toList().get(0).getId());
+        ManagerMapper.mapToManager(managerDto,manager);
+        for (int i = 0; i < managerDto.getEmployeeList().size(); i++) {
+            manager.getEmployeeList().add(organizationService.retrieveEmployee(managerDto.getEmployeeList().get(i).getFirstName(),
+                    managerDto.getEmployeeList().get(i).getLastName()));
+        }
+        managerRepository.save(manager);
+    }
+
+
+    public void deleteManagerByName(String firstName, String lastName) {
+        Optional<Manager> optionalManager = managerRepository.findByFirstNameAndLastName(firstName,lastName);
+        if(!optionalManager.isPresent()){
+            throw new ManagerNotFoundException("manager","manger name",firstName+" "+lastName);
+        }
+        managerRepository.deleteById(optionalManager.stream().toList().get(0).getId());
+    }
 }

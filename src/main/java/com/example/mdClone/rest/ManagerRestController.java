@@ -41,6 +41,22 @@ public class ManagerRestController {
                 .body(new ResponseDto(MdCloneConstants.STATUS_201,MdCloneConstants.MANAGER_MESSAGE_201));
     }
 
+    @PutMapping("/updateManager")
+    public ResponseEntity<ResponseDto> updateManager(@RequestBody ManagerDto managerDto,@RequestParam String firstName, @RequestParam String lastName){
+        managerService.updateManager(managerDto,firstName,lastName);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseDto(MdCloneConstants.STATUS_200,MdCloneConstants.MESSAGE_200));
+    }
+
+    @DeleteMapping("/deleteManagerByName")
+    public ResponseEntity<ResponseDto> deleteManagerByName(@RequestParam String firstName, @RequestParam String lastName){
+        managerService.deleteManagerByName(firstName,lastName);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseDto(MdCloneConstants.STATUS_200,MdCloneConstants.MESSAGE_200));
+    }
+
 
 
 }
